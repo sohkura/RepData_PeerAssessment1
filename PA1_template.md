@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ```r
@@ -29,7 +34,7 @@ total_steps_day <- aggregate(steps ~ date, data = dataset, FUN = sum, na.action 
 hist(total_steps_day$steps, xlab = "Total Number of Steps Taken Each Day", main = paste("Histogram of", "Total Number of Staps Taken Each Day"))
 ```
 
-![](PA1_template_files/figure-html/PlotHistogram-1.png) 
+![plot of chunk PlotHistogram](figure/PlotHistogram-1.png) 
 
 3. Calculate and report the mean of the total number of steps taken per day.
 
@@ -71,7 +76,7 @@ average_steps_interval$sequence <- 1:288
 plot(average_steps_interval$sequence, average_steps_interval$steps, type = "l", xlab = "5-min inerval (e.g., 1=5min, 2=10min, 3-15min, ...)", ylab = "Avearage number of steps", main = "Average number of steps taken for each 5 min interval")
 ```
 
-![](PA1_template_files/figure-html/timeSeriesPlotOf5MinInterval-1.png) 
+![plot of chunk timeSeriesPlotOf5MinInterval](figure/timeSeriesPlotOf5MinInterval-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -128,7 +133,7 @@ total_steps_day_imputed <- aggregate(steps.x ~ date, data = merged_dataset, FUN 
 hist(total_steps_day_imputed$steps.x, xlab = "Total Number of Steps Taken Each Day", main = paste("Histogram of", "Total Number of Staps Taken Each Day with NA imputed"))    
 ```
 
-![](PA1_template_files/figure-html/PlotHistogramWithoutNA-1.png) 
+![plot of chunk PlotHistogramWithoutNA](figure/PlotHistogramWithoutNA-1.png) 
 
 Mean of the total number of steps per day.
 
@@ -201,6 +206,6 @@ average$week <- as.factor(average$week)
 xyplot(steps.x ~ seq | week, data = average, type = "l", layout = c(1,2),xlab = "5-minute interval (e.g., 1=5minm 2=10min, 3=15min, ...)", ylab = "Average number of steps taken" , main = "Comparison between weekend and weekday")
 ```
 
-![](PA1_template_files/figure-html/planePlot-1.png) 
+![plot of chunk planePlot](figure/planePlot-1.png) 
 
 
